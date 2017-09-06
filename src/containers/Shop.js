@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const Dashboard = () => {
+const Shop = () => {
   return (
     <div>
-      DASHBOARD
+      Shop
     </div>
   )
 }
@@ -14,4 +14,4 @@ function mapStateToProps (state, props) {
   }
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default connect(mapStateToProps)(Shop)
