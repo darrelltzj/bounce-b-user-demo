@@ -18,7 +18,7 @@ import NotFoundPage from './containers/NotFoundPage'
 const Routes = () => {
   return (
     <ConnectedRouter history={history}>
-      <main>
+      <div>
         <Navbar />
         <Switch>
           <Route exact path='/' component={HomePage} />
@@ -32,7 +32,7 @@ const Routes = () => {
           <Route exact path='/articles/:articleId' component={Article} />
           <Route path='*' component={NotFoundPage} />
         </Switch>
-      </main>
+      </div>
     </ConnectedRouter>
   )
 }

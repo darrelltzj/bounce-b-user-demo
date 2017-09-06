@@ -17,9 +17,9 @@ const StyledNavbar = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-left: 10%;
-    padding-right: 10%;
-    height: 48px;
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 56px;
     border-bottom: 1px solid #e5e5e5;
   }
   @media (max-width: 420px) {
@@ -35,8 +35,8 @@ const Navbar = () => {
   return (
     <StyledNavbar>
       <div>
-        <Link to='#'>
-          LOGO
+        <Link to='#' style={{ fontSize: '1.4em' }}>
+          Bounce-B
         </Link>
       </div>
       <div style={{ width: '50%' }}>
@@ -49,7 +49,7 @@ const Navbar = () => {
       </div>
       <div>
         <Link to='#'>
-          <Icon type='user' style={{ fontSize: 20, color: 'black' }} />
+          <Icon type='user' style={{ fontSize: '2em', color: 'black' }} />
         </Link>
       </div>
     </StyledNavbar>

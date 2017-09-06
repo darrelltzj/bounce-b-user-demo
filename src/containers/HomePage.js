@@ -3,47 +3,62 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Row, Col } from 'antd'
 
-// import homePageImage from '../images/home-page-hero.jpg'
-import HomeLiveFeeds from '../components/home/HomeLiveFeeds'
+import HomeTrendings from '../components/home/HomeTrendings'
+import HomePins from '../components/home/HomePins'
 
 const StyledHomePage = styled.div`
-  .home-page-image-container {
-    width: 100%;
-    height: 180px;
-    background-color: black;
-    ${'' /* background-image: url(${homePageImage}); */}
-    background-position: center;
-    overflow: hidden;
+  {
+    padding-left: 5%;
+    padding-right: 5%;
   }
-  .home-page-image-container img {
-    width:100%;
-    filter: brightness(80%);
+  @media (max-width: 420px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  header {
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    span {
+      font-size: 3em;
+    }
+  }
+  .home-subheader {
+    font-size: 2em;
   }
 `
 
-const HomePage = () => {
+const HomePage = (props) => {
+  const {liveFeeds, pinnedArticles} = props
   return (
     <StyledHomePage>
-      <header className='home-page-image-container'>
-        {/* <img src={homePageImage} /> */}
+      <header>
+        <span>Articles</span>
       </header>
-      <section>
+      <main>
         <Row>
-          <Col xs={24} sm={24} md={8}>
-            <HomeLiveFeeds />
+          <Col xs={24} sm={18} md={18} style={{paddingRight: '1%'}}>
+            <span className='home-subheader'>
+              Trending
+            </span>
+            <HomeTrendings liveFeeds={liveFeeds} />
           </Col>
-          <Col xs={24} sm={24} md={16}>
-            PINNED
+          <Col xs={24} sm={6} md={6} style={{paddingLeft: '1%'}}>
+            <HomePins pinnedArticles={pinnedArticles} />
           </Col>
         </Row>
-      </section>
+      </main>
     </StyledHomePage>
   )
 }
 
-// function mapStateToProps (state, props) {
-//   return {
-//   }
-// }
+function mapStateToProps (state, props) {
+  const {articles, user} = state
+  const {pinnedArticles} = user
+  return {
+    liveFeeds: articles,
+    pinnedArticles
+  }
+}
 
-export default connect(null)(HomePage)
+export default connect(mapStateToProps)(HomePage)
