@@ -35,7 +35,7 @@ const Navbar = () => {
   return (
     <StyledNavbar>
       <div>
-        <Link to='#' style={{ fontSize: '1.4em' }}>
+        <Link to='/' style={{ fontSize: '1.4em' }}>
           Bounce-B
         </Link>
       </div>
@@ -48,7 +48,7 @@ const Navbar = () => {
         </Form>
       </div>
       <div>
-        <Link to='#'>
+        <Link to='/'>
           <Icon type='user' style={{ fontSize: '2em', color: 'black' }} />
         </Link>
       </div>
