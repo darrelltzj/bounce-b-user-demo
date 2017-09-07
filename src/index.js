@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 import Routes from './routes'
 // import registerServiceWorker from './registerServiceWorker'
+import { unregister } from './registerServiceWorker'
 
 let store = configureStore()
 
@@ -14,3 +15,4 @@ ReactDOM.render(
   document.getElementById('root'))
 
 // registerServiceWorker()
+unregister()
