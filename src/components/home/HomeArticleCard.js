@@ -6,7 +6,7 @@ import { Icon } from 'antd'
 
 const StyledTrending = styled.div`
   {
-    height: 100px;
+    height: auto;
     margin: 1%;
     border: 1px solid silver;
     padding: 2%;

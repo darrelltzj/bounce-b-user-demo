@@ -31,10 +31,12 @@ const HomePage = (props) => {
       </header>
       <main>
         <Row>
-          <Col xs={24} sm={6} md={6} style={{paddingRight: '1%'}}>
+          <Col xs={24} sm={6} md={6}
+            style={{paddingRight: '1%'}}>
             <HomeTrendings articles={articles} />
           </Col>
-          <Col xs={24} sm={18} md={18} style={{paddingLeft: '1%'}}>
+          <Col xs={24} sm={18} md={18}
+            style={{paddingLeft: '1%'}}>
             <h2>Pinned <Icon type='pushpin' /></h2>
             <HomePins
               pinnedArticles={pinnedArticles} articles={articles}

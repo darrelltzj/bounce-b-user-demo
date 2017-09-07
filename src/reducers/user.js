@@ -1,49 +1,8 @@
 import {
 } from '../actions/types'
-import {
-  title,
-  shortDescription} from '../constants/placeholders'
 
-const recommendedProducts = [
-  {
-    _id: 5,
-    title,
-    authorId: 3,
-    author: 'Author 3',
-    date: '03/08/2017',
-    img: '4.jpg',
-    shortDescription
-  },
-  {
-    _id: 6,
-    title,
-    authorId: 3,
-    author: 'Author 3',
-    date: '02/08/2017',
-    img: '5.jpg',
-    shortDescription
-  }
-]
-const recommendedArticles = [
-  {
-    _id: 5,
-    title,
-    authorId: 3,
-    author: 'Author 3',
-    date: '03/08/2017',
-    img: '4.jpg',
-    shortDescription
-  },
-  {
-    _id: 6,
-    title,
-    authorId: 3,
-    author: 'Author 3',
-    date: '02/08/2017',
-    img: '5.jpg',
-    shortDescription
-  }
-]
+const recommendedProducts = [5]
+const recommendedArticles = [1, 2, 3, 5, 6]
 const pinnedArticles = [
   {
     title: 'Food and Nutrition',

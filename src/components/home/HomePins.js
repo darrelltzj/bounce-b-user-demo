@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { Icon } from 'antd'
 
 import HomePin from './HomePin'
 
