@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card, Row, Col } from 'antd'
 import styled from 'styled-components'
+
+import Recommended from '../components/partials/Recommended'
 import { dummyProducts, dummySuppliers } from '../constants/dummyData'
 
 const StyledShopPage = styled.div`
@@ -87,7 +89,7 @@ export default class Shop extends React.Component {
             </main>
           </Col>
           <Col xs={24} sm={6} md={6} style={{paddingLeft: '1%'}}>
-            Recommendation
+            <Recommended />
           </Col>
         </Row>
       </StyledShopPage>

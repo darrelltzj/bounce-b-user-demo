@@ -4,6 +4,7 @@ import { Row, Col, Card, InputNumber, Form, Button, Icon, Divider } from 'antd'
 import styled from 'styled-components'
 import { dummyProducts, dummySuppliers } from '../constants/dummyData'
 
+import Recommended from '../components/partials/Recommended'
 import { shortDescription, title, text } from '../constants/placeholders'
 
 const StyledHomePage = styled.div`
@@ -61,56 +62,63 @@ export default class Product extends React.Component {
     }
     return (
       <StyledHomePage>
-        <Row gutter={16}>
-          <Col xs={24} sm={4} md={4}>
-            <img src={require(`../images/${img}`)} alt='product image' />
-          </Col>
-          <Col xs={24} sm={20} md={20}>
-            <div className='product-container'>
-              <header>
-                <span>{name}</span>
-                {` by `}
-                <span className='product-subheader'>
-                  <Link to={`/companies/${dummySuppliers[supplier]._id}`}>{dummySuppliers[supplier].name}</Link>
-                </span>
-              </header>
-              <section>
-                <Row>
-                  <Col xs={24} sm={2} md={2}>Price: </Col>
-                  <Col xs={24} sm={22} md={22}>{price}</Col>
-                </Row>
-                <Row>
-                  <Col xs={24} sm={2} md={2}>Quantity: </Col>
-                  <Col xs={24} sm={22} md={22}>
-                    <InputNumber min={1} max={10} defaultValue={3} onChange />
-                  </Col>
-                </Row>
-              </section>
-
-              <section>
-                <Button.Group>
-                  <Button type='primary'>
-                    <Icon type='shopping-cart' />Add to Cart
-                  </Button>
-                  <Button>
-                    <Icon type='heart' />Favourite
-                  </Button>
-                </Button.Group>
-              </section>
-            </div>
-          </Col>
-        </Row>
-
         <Row>
-          <Col xs={24} sm={24} md={24}>
-            <div className='product-container'>
-              <section>
-                <span className='product-subheader2'>Description</span>
-                <p>{text}</p>
-              </section>
-            </div>
+          <Col xs={24} sm={18} md={18} style={{paddingRight: '1%'}}>
+            <Row gutter={16}>
+              <Col xs={24} sm={4} md={4}>
+                <img src={require(`../images/${img}`)} alt='product image' />
+              </Col>
+              <Col xs={24} sm={20} md={20}>
+                <div className='product-container'>
+                  <header>
+                    <span>{name}</span>
+                    {` by `}
+                    <span className='product-subheader'>
+                      <Link to={`/companies/${dummySuppliers[supplier]._id}`}>{dummySuppliers[supplier].name}</Link>
+                    </span>
+                  </header>
+                  <section>
+                    <Row>
+                      <Col xs={24} sm={2} md={2}>Price: </Col>
+                      <Col xs={24} sm={22} md={22}>{price}</Col>
+                    </Row>
+                    <Row>
+                      <Col xs={24} sm={2} md={2}>Quantity: </Col>
+                      <Col xs={24} sm={22} md={22}>
+                        <InputNumber min={1} max={10} defaultValue={3} onChange />
+                      </Col>
+                    </Row>
+                  </section>
+                  <section>
+                    <Button.Group>
+                      <Button type='primary'>
+                        <Icon type='shopping-cart' />Add to Cart
+                      </Button>
+                      <Button>
+                        <Icon type='heart' />Favourite
+                      </Button>
+                    </Button.Group>
+                  </section>
+                </div>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col xs={24} sm={24} md={24}>
+                <div className='product-container'>
+                  <section>
+                    <span className='product-subheader2'>Description</span>
+                    <p>{text}</p>
+                  </section>
+                </div>
+              </Col>
+            </Row>
+          </Col>
+          <Col xs={24} sm={6} md={6} style={{paddingLeft: '1%'}}>
+            <Recommended />
           </Col>
         </Row>
+
       </StyledHomePage>
     )
   }
