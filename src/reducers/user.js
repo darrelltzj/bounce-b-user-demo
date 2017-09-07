@@ -1,8 +1,8 @@
 import {
 } from '../actions/types'
 
-const recommendedProducts = [5]
-const recommendedArticles = [1, 2, 3, 5, 6]
+const recommendedProducts = [5, 6]
+const recommendedArticles = [1, 2, 3, 5, 6, 7]
 const pinnedArticles = [
   {
     title: 'Food and Nutrition',
