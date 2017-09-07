@@ -6,8 +6,8 @@ import {
   text
 } from '../constants/placeholders'
 
-const INITIAL_STATE = [
-  {
+const object = {
+  1: {
     _id: 1,
     title,
     authorId: 1,
@@ -17,7 +17,7 @@ const INITIAL_STATE = [
     shortDescription,
     text
   },
-  {
+  2: {
     _id: 2,
     title,
     authorId: 1,
@@ -27,7 +27,7 @@ const INITIAL_STATE = [
     shortDescription,
     text
   },
-  {
+  3: {
     _id: 3,
     title,
     authorId: 2,
@@ -37,7 +37,7 @@ const INITIAL_STATE = [
     shortDescription,
     text
   },
-  {
+  4: {
     _id: 4,
     title,
     authorId: 2,
@@ -47,7 +47,7 @@ const INITIAL_STATE = [
     shortDescription,
     text
   },
-  {
+  5: {
     _id: 5,
     title,
     authorId: 3,
@@ -57,7 +57,7 @@ const INITIAL_STATE = [
     shortDescription,
     text
   },
-  {
+  6: {
     _id: 6,
     title,
     authorId: 3,
@@ -67,17 +67,22 @@ const INITIAL_STATE = [
     shortDescription,
     text
   },
-  {
+  7: {
     _id: 7,
     title,
-    authorId: 4,
-    author: 'Author 4',
+    authorId: 3,
+    author: 'Author 3',
     date: '01/08/2017',
     img: '6.jpg',
     shortDescription,
     text
   }
-]
+}
+const array = [1, 2, 3, 4, 5, 6, 7]
+const INITIAL_STATE = {
+  object,
+  array
+}
 
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {

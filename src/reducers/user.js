@@ -1,40 +1,38 @@
 import {
 } from '../actions/types'
-import {
-  title,
-  shortDescription} from '../constants/placeholders'
 
+const recommendedProducts = [5, 6]
+const recommendedArticles = [1, 2, 3, 5, 6, 7]
 const pinnedArticles = [
   {
-    _id: 5,
-    title,
-    authorId: 3,
-    author: 'Author 3',
-    date: '03/08/2017',
-    img: '4.jpg',
-    shortDescription
+    title: 'Food and Nutrition',
+    articles: [1, 2, 3]
   },
   {
-    _id: 6,
-    title,
-    authorId: 3,
-    author: 'Author 3',
-    date: '02/08/2017',
-    img: '5.jpg',
-    shortDescription
+    title: 'Body and Mind',
+    articles: [5, 6, 7]
   },
   {
-    _id: 7,
-    title,
-    authorId: 4,
-    author: 'Author 4',
-    date: '01/08/2017',
-    img: '6.jpg',
-    shortDescription
+    title: 'Supplements',
+    articles: [4, 5, 6]
+  },
+  {
+    title: 'Herbal',
+    articles: [1, 2, 7]
+  },
+  {
+    title: 'Author 3',
+    articles: [5, 6, 7]
+  },
+  {
+    title: 'Others',
+    articles: [1, 2, 3]
   }
 ]
 
 const INITIAL_STATE = {
+  recommendedProducts,
+  recommendedArticles,
   pinnedArticles
 }
 

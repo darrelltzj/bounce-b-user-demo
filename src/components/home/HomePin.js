@@ -1,49 +1,34 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { Icon } from 'antd'
 
-const StyledHomeTrending = styled.div`
+import HomeArticleCard from './HomeArticleCard'
+
+const StyledPin = styled.div`
   {
-    height: 120px;
-    margin: 1%;
-    border: 1px solid silver;
-    padding: 2%;
-    -ms-box-orient: horizontal;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    width: 33%;
+    padding: 10px;
+  }
+  @media (max-width: 420px) {
+    width: 98%;
   }
 `
 
 const HomePin = (props) => {
-  const {pinnedArticle} = props
+  const {pinnedArticle, articles} = props
   return (
-    <StyledHomeTrending>
-      <div style={{width: '30%', maxHeight: '99%', overflow: 'hidden'}}>
-        <Link to={`/articles/${pinnedArticle._id}`}>
-          <img
-            src={require(`../../images/${pinnedArticle.img}`)}
-            style={{width: '100%'}} />
-        </Link>
-      </div>
-      <div>
-        <p><strong>{pinnedArticle.title}</strong></p>
-        <p>By: {pinnedArticle.author}</p>
-        <p>Date: {pinnedArticle.date}</p>
-      </div>
-      <div>
-        <span style={{fontSize: '1.2em', cursor: 'pointer'}}>
-          <Icon type='pushpin' />
-        </span>
-      </div>
-    </StyledHomeTrending>
+    <StyledPin>
+      <h3>{pinnedArticle.title}</h3>
+      {pinnedArticle.articles.map((article, index) => {
+        return (
+          <HomeArticleCard
+            key={index}
+            article={articles.object[article]}
+            pinned
+           />
+        )
+      })}
+    </StyledPin>
   )
 }
 
