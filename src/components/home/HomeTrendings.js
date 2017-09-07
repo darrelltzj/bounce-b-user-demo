@@ -2,38 +2,32 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 
-import HomeTrending from './HomeTrending'
+import HomeArticleCard from './HomeArticleCard'
 
 const StyledTrendings = styled.div`
   {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
+    padding-right: 5%;
+  }
+  @media (max-width: 991px) {
+    position: relative;
+  }
+  @media (max-width: 420px) {
+    padding-right: 10px;
   }
 `
 
 const HomeTrendings = (props) => {
-  const {liveFeeds} = props
+  const {articles} = props
   return (
     <StyledTrendings>
-      {liveFeeds.map((liveFeed, index) => {
+      <h2>Trending</h2>
+      {articles.array.map((article, index) => {
         return (
-          <HomeTrending key={index} liveFeed={liveFeed} />
+          <HomeArticleCard key={index} article={articles.object[article]} />
         )
       })}
     </StyledTrendings>
   )
 }
 
-function mapStateToProps (state, props) {
-  const {articles} = state
-  return {
-    liveFeeds: articles
-  }
-}
-
-export default connect(mapStateToProps)(HomeTrendings)
+export default connect(null)(HomeTrendings)

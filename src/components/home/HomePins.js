@@ -5,33 +5,31 @@ import { Icon } from 'antd'
 
 import HomePin from './HomePin'
 
-const StyledTrendings = styled.div`
+const StyledPins = styled.div`
   {
-    position: fixed;
-    padding-right: 5%;
-    overflow: scroll;
-  }
-  @media (max-width: 991px) {
-    position: relative;
-  }
-  @media (max-width: 420px) {
-    padding-right: 10px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
   }
 `
 
 const HomeTrendings = (props) => {
-  const {pinnedArticles} = props
+  const {pinnedArticles, articles} = props
   return (
-    <StyledTrendings>
-      <span className='home-subheader'>
-        Pinned <Icon type='pushpin' />
-      </span>
+    <StyledPins>
       {pinnedArticles.map((pinnedArticle, index) => {
         return (
-          <HomePin key={index} pinnedArticle={pinnedArticle} />
+          <HomePin
+            key={index}
+            pinnedArticle={pinnedArticle}
+            articles={articles} />
         )
       })}
-    </StyledTrendings>
+    </StyledPins>
   )
 }
 

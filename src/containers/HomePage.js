@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { Row, Col } from 'antd'
+import { Row, Col, Icon } from 'antd'
 
 import HomeTrendings from '../components/home/HomeTrendings'
 import HomePins from '../components/home/HomePins'
@@ -17,34 +17,28 @@ const StyledHomePage = styled.div`
   }
   header {
     width: 100%;
-    height: 60px;
+    height: 20px;
     overflow: hidden;
-    span {
-      font-size: 3em;
-    }
-  }
-  .home-subheader {
-    font-size: 2em;
   }
 `
 
 const HomePage = (props) => {
-  const {liveFeeds, pinnedArticles} = props
+  const {articles, pinnedArticles} = props
   return (
     <StyledHomePage>
       <header>
-        <span>Articles</span>
+        {/* <h1>Articles</h1> */}
       </header>
       <main>
         <Row>
-          <Col xs={24} sm={18} md={18} style={{paddingRight: '1%'}}>
-            <span className='home-subheader'>
-              Trending
-            </span>
-            <HomeTrendings liveFeeds={liveFeeds} />
+          <Col xs={24} sm={6} md={6} style={{paddingRight: '1%'}}>
+            <HomeTrendings articles={articles} />
           </Col>
-          <Col xs={24} sm={6} md={6} style={{paddingLeft: '1%'}}>
-            <HomePins pinnedArticles={pinnedArticles} />
+          <Col xs={24} sm={18} md={18} style={{paddingLeft: '1%'}}>
+            <h2>Pinned <Icon type='pushpin' /></h2>
+            <HomePins
+              pinnedArticles={pinnedArticles} articles={articles}
+            />
           </Col>
         </Row>
       </main>
@@ -56,7 +50,7 @@ function mapStateToProps (state, props) {
   const {articles, user} = state
   const {pinnedArticles} = user
   return {
-    liveFeeds: articles,
+    articles,
     pinnedArticles
   }
 }
