@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { Icon } from 'antd'
 
 const StyledTrending = styled.div`
   {
@@ -23,7 +22,7 @@ const StyledTrending = styled.div`
 `
 
 const HomeArticleCard = (props) => {
-  const {article, pinned} = props
+  const {article} = props
   return (
     <StyledTrending>
       <div style={{width: '30%', maxHeight: '99%', overflow: 'hidden'}}>
@@ -46,11 +45,6 @@ const HomeArticleCard = (props) => {
           </Link>
         </p>
         <p>Date: {article.date}</p>
-      </div>
-      <div>
-        <span style={{fontSize: '1.2em', cursor: 'pointer'}}>
-          <Icon type={pinned ? 'pushpin' : 'pushpin-o'} />
-        </span>
       </div>
     </StyledTrending>
   )

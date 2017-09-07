@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
+import { Icon } from 'antd'
 
 import HomeArticleCard from './HomeArticleCard'
 
@@ -18,7 +19,10 @@ const HomePin = (props) => {
   const {pinnedArticle, articles} = props
   return (
     <StyledPin>
-      <h3>{pinnedArticle.title}</h3>
+      <h3>
+        {pinnedArticle.title}{' '}
+        <Icon type={'pushpin'} style={{cursor: 'pointer'}} />
+      </h3>
       {pinnedArticle.articles.map((article, index) => {
         return (
           <HomeArticleCard
