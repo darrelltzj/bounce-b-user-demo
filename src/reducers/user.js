@@ -6,6 +6,13 @@ const recommendedArticles = [1, 2, 3, 5, 6, 7]
 const pinnedArticles = [
   {
     title: {
+      en: 'Videos',
+      cn: '视频'
+    },
+    videoIds: [1, 2, 3]
+  },
+  {
+    title: {
       en: 'Food and Nutrition',
       cn: '食物和营养'
     },
@@ -38,13 +45,6 @@ const pinnedArticles = [
       cn: 'Author 3'
     },
     articleIds: [5, 6, 7]
-  },
-  {
-    title: {
-      en: 'Videos',
-      cn: '视频'
-    },
-    videoIds: [1, 2, 3]
   }
 ]
 

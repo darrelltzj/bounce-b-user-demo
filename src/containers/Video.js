@@ -70,9 +70,9 @@ class Video extends React.Component {
                 <iframe
                   width='100%'
                   height='360'
-                  src='https://www.youtube.com/embed/k1rBciQO93E'
-                  frameborder='0'
-                  allowfullscreen />
+                  src={video.url}
+                  frameBorder='0'
+                  allowFullScreen />
                 <Discussions toggleChat={this.toggleChat} />
                 {this.state.toggleChat &&
                   <Chat
