@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Row, Col } from 'antd'
+import { handleTranslation } from '../actions/translations'
+import dictionary from '../constants/dictionary'
 
 import Discussions from '../components/discussions/Discussions'
 import Recommended from '../components/partials/Recommended'
@@ -26,6 +28,7 @@ class Article extends React.Component {
       toggleChat: false
     }
     this.toggleChat = this.toggleChat.bind(this)
+    this.handleClickTranslation = this.handleClickTranslation.bind(this)
   }
 
   toggleChat (author) {
@@ -34,16 +37,33 @@ class Article extends React.Component {
     })
   }
 
+  handleClickTranslation (language) {
+    this.props.handleTranslation(language)
+  }
+
   render () {
-    const {article} = this.props
+    const {translation, article} = this.props
     return (
       <StyledArticle>
         <Row>
           <Col xs={24} sm={18} md={18} style={{paddingRight: '1%'}}>
             <h1>{article.title}</h1>
             <h2>
-              By <Link to={`../profiles/${article.authorId}`}>{article.author}</Link>
+              {translation === 'en' ? dictionary.by.en : dictionary.by.cn}
+              {' '}
+              <Link to={`../profiles/${article.authorId}`}>
+                {article.author}
+              </Link>
             </h2>
+            <div>
+              <a onClick={() => this.handleClickTranslation('en')}>
+                en
+              </a>
+              {' | '}
+              <a onClick={() => this.handleClickTranslation('cn')}>
+                cn
+              </a>
+            </div>
             <Row>
               <Col xs={24} sm={20} md={20}>
                 <div
@@ -96,13 +116,14 @@ class Article extends React.Component {
 }
 
 function mapStateToProps (state, props) {
-  const {articles} = state
+  const {translation, articles} = state
   const {match} = props
   const {params} = match
   const {articleId} = params
   return {
+    translation,
     article: articles.object[articleId]
   }
 }
 
-export default connect(mapStateToProps)(Article)
+export default connect(mapStateToProps, {handleTranslation})(Article)

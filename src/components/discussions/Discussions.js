@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Form, Input, Icon } from 'antd'
+import dictionary from '../../constants/dictionary'
 
 const StyledDiscussions = styled.aside`
   {
@@ -12,16 +13,16 @@ const StyledDiscussions = styled.aside`
 `
 
 const Discussions = (props) => {
-  const {comments, toggleChat} = props
+  const {translation, comments, toggleChat} = props
   return (
     <StyledDiscussions>
       <div>
-        <h2>Discussions</h2>
+        <h2>{translation === 'en' ? dictionary.discussions.en : dictionary.discussions.cn}</h2>
         <Form>
           <Input
             type='textarea'
             rows={4}
-            placeholder='Start a discussion'
+            placeholder={translation === 'en' ? dictionary.startADiscussion.en : dictionary.startADiscussion.cn}
            />
         </Form>
         {comments.map((comment, index) => {
@@ -73,6 +74,7 @@ const Discussions = (props) => {
 }
 
 function mapStateToProps (state, props) {
+  const {translation} = state
   let comments = []
   for (let i = 1; i < 5; i++) {
     let userId = Math.round(Math.random() * 3 + 1)
@@ -85,6 +87,7 @@ function mapStateToProps (state, props) {
     })
   }
   return {
+    translation,
     comments
   }
 }

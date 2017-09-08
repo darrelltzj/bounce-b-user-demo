@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
+import dictionary from '../../constants/dictionary'
 
 import HomeArticleCard from '../home/HomeArticleCard'
 import RecommendedProductCard from './RecommendedProductCard'
@@ -16,12 +17,16 @@ const StyledRecommended = styled.aside`
 `
 
 const Recommended = (props) => {
-  const {articles, products, recommendedProducts, recommendedArticles} = props
+  const {translation, articles, products, recommendedProducts, recommendedArticles} = props
   return (
     <StyledRecommended>
-      <h3>You might like these</h3>
+      <h3>
+        {translation === 'en' ? dictionary.youMightLikeThese.en : dictionary.youMightLikeThese.cn}
+      </h3>
       <div>
-        <h4>Products</h4>
+        <h4>
+          {translation === 'en' ? dictionary.products.en : dictionary.products.cn}
+        </h4>
         {recommendedProducts.map((recommendedProduct, index) => {
           return (
             <RecommendedProductCard
@@ -32,7 +37,9 @@ const Recommended = (props) => {
         })}
       </div>
       <div>
-        <h4>Articles</h4>
+        <h4>
+          {translation === 'en' ? dictionary.articles.en : dictionary.articles.cn}
+        </h4>
         {recommendedArticles.map((recommendedArticle, index) => {
           return (
             <HomeArticleCard
@@ -47,9 +54,10 @@ const Recommended = (props) => {
 }
 
 function mapStateToProps (state, props) {
-  const {articles, products, user} = state
+  const {translation, articles, products, user} = state
   const {recommendedProducts, recommendedArticles} = user
   return {
+    translation,
     articles,
     products,
     recommendedProducts,
