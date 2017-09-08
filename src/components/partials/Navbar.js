@@ -20,7 +20,12 @@ const StyledNavbar = styled.div`
     padding-left: 5%;
     padding-right: 5%;
     height: 56px;
+    width:100%;
+    background-color: white;
     border-bottom: 1px solid #e5e5e5;
+    top: 0;
+    position: sticky;
+    z-index: 2;
   }
   @media (max-width: 420px) {
     padding-left: 10px;

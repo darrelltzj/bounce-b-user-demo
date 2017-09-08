@@ -21,7 +21,7 @@ const HomePin = (props) => {
     <StyledPin>
       <h3>
         {pinnedArticle.title}{' '}
-        <Icon type={'pushpin'} style={{cursor: 'pointer'}} />
+        <Icon type={'tag'} style={{cursor: 'pointer'}} />
       </h3>
       {pinnedArticle.articles.map((article, index) => {
         return (
