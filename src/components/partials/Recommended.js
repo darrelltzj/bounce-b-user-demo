@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import dictionary from '../../constants/dictionary'
 
-import HomeArticleCard from '../home/HomeArticleCard'
+import ArticleCard from '../home/ArticleCard'
 import RecommendedProductCard from './RecommendedProductCard'
 
 const StyledRecommended = styled.aside`
@@ -42,7 +42,7 @@ const Recommended = (props) => {
         </h4>
         {recommendedArticles.map((recommendedArticle, index) => {
           return (
-            <HomeArticleCard
+            <ArticleCard
               key={index}
               article={articles.object[recommendedArticle]}
              />

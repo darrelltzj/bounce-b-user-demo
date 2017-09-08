@@ -19,18 +19,18 @@ const StyledActionDiv = styled.div`
 export const ActionBar = props => {
   return (
     <StyledActionDiv>
-      <Row gutter={16}>
-        <Col xs={24} sm={8} md={8}>
+      <Row gutter={8}>
+        <Col xs={8} sm={8} md={8}>
           <Tooltip placement='top' title={'Favourite'}>
             <Icon className='action-icon' type='heart-o' style={{color: 'rgb(249, 57, 57)'}} />
           </Tooltip>
         </Col>
-        <Col xs={24} sm={8} md={8}>
+        <Col xs={8} sm={8} md={8}>
           <Tooltip placement='top' title={'Bookmark'}>
             <Icon className='action-icon' type='book' style={{color: 'rgb(88, 144, 252)'}} />
           </Tooltip>
         </Col>
-        <Col xs={24} sm={8} md={8}>
+        <Col xs={8} sm={8} md={8}>
           <Tooltip placement='top' title={'Share'}>
             <Icon className='action-icon' type='share-alt' />
           </Tooltip>

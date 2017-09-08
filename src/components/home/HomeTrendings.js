@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import dictionary from '../../constants/dictionary'
 
-import HomeArticleCard from './HomeArticleCard'
+import ArticleCard from './ArticleCard'
 
 const StyledTrendings = styled.div`
   {
@@ -26,7 +26,7 @@ const HomeTrendings = (props) => {
       </h2>
       {articles.array.map((article, index) => {
         return (
-          <HomeArticleCard key={index} article={articles.object[article]} />
+          <ArticleCard key={index} article={articles.object[article]} />
         )
       })}
     </StyledTrendings>

@@ -7,19 +7,10 @@ import dictionary from '../../constants/dictionary'
 
 const StyledTrending = styled.div`
   {
-    height: auto;
+    height: 180px;
     margin: 1%;
-    border: 1px solid silver;
-    padding: 2%;
-    -ms-box-orient: horizontal;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
   }
 `
 
@@ -27,15 +18,21 @@ const HomeArticleCard = (props) => {
   const {translation, article} = props
   return (
     <StyledTrending>
-      <div style={{width: '50%', height: '99%', overflow: 'hidden'}}>
-        <Link to={`/articles/${article._id}`}>
-          <img
-            src={require(`../../images/${article.img}`)}
-            alt={article.title}
-            style={{width: '100%'}} />
-        </Link>
-      </div>
-      <div>
+      <Link to={`/articles/${article._id}`}>
+        <img
+          src={require(`../../images/${article.img}`)}
+          alt={article.title}
+          style={{width: '100%', position: 'absolute', bottom: 0}} />
+      </Link>
+      <div
+        style={{
+          height: 90,
+          width: '80%',
+          padding: 10,
+          backgroundColor: 'white',
+          zIndex: 2,
+          position: 'absolute',
+          bottom: 0}}>
         <p><strong>{article.title}</strong></p>
         <p>
           {translation === 'en' ? dictionary.byAuthor.en : dictionary.byAuthor.cn}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Form, Icon, Input } from 'antd'
+import dictionary from '../../constants/dictionary'
 
 const StyledNavbar = styled.div`
   {
@@ -36,7 +37,8 @@ const StyledNavbar = styled.div`
   }
 `
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const {translation} = props
   return (
     <StyledNavbar>
       <div>
@@ -48,17 +50,24 @@ const Navbar = () => {
         <Form>
           <Input
             prefix={<Icon type='search' style={{ fontSize: 12 }} />}
-            placeholder='Search'
+            placeholder={translation === 'en' ? dictionary.search.en : dictionary.search.cn}
            />
         </Form>
       </div>
       <div>
         <Link to='/'>
-          <Icon type='user' style={{ fontSize: '2em', color: 'black' }} />
+          <Icon type='shopping-cart' style={{ fontSize: '2em', color: 'black' }} />
         </Link>
       </div>
     </StyledNavbar>
   )
 }
 
-export default connect(null)(Navbar)
+function mapStateToProps (state, props) {
+  const {translation} = state
+  return {
+    translation
+  }
+}
+
+export default connect(mapStateToProps)(Navbar)

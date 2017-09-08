@@ -19,10 +19,10 @@ const HomePin = (props) => {
   const {pinnedArticle, articles} = props
   return (
     <StyledPin>
-      <h3>
+      <h2>
         {pinnedArticle.title}{' '}
         <Icon type={'tag'} style={{cursor: 'pointer'}} />
-      </h3>
+      </h2>
       {pinnedArticle.articles.map((article, index) => {
         return (
           <HomeArticleCard

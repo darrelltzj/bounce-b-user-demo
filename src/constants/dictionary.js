@@ -62,5 +62,9 @@ export default {
   date: {
     en: 'Date',
     cn: '日期'
+  },
+  search: {
+    en: 'Search',
+    cn: '搜索'
   }
 }

@@ -11,7 +11,7 @@ const StyledChat = styled.aside`
     position: fixed;
     right: 0;
     bottom: 0;
-    z-index: 2;
+    z-index: 10;
     background-color: white;
     border: 1px solid grey;
     margin-right: 6%;
