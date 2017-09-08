@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { handleTranslation } from '../actions/translations'
 import { Row, Col } from 'antd'
 import { shortDescription, title } from '../constants/placeholders'
 import { dummySuppliers, dummyProducts } from '../constants/dummyData'
@@ -57,7 +59,7 @@ const StyledHomePage = styled.div`
   }
 `
 
-export default class Company extends React.Component {
+class Company extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -72,6 +74,7 @@ export default class Company extends React.Component {
 
   handleLangChange (event) {
     this.setState({ lang: event.target.dataset.lang })
+    this.props.handleTranslation(event.target.dataset.lang)
   }
 
   render () {
@@ -148,3 +151,12 @@ export default class Company extends React.Component {
     )
   }
 }
+
+function mapStateToProps (state, props) {
+  const {translation} = state
+  return {
+    translation
+  }
+}
+
+export default connect(mapStateToProps, {handleTranslation})(Company)
