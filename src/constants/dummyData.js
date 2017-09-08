@@ -25,7 +25,7 @@ export const dummyProducts = [
     price: '$88.00',
     supplier: 1,
     _id: 4,
-    img: '10.jpg'
+    img: 'image1.jpeg'
   },
   {
     name: 'Healthy Product 5',
@@ -46,7 +46,7 @@ export const dummyProducts = [
     price: '$25.00',
     supplier: 1,
     _id: 7,
-    img: '13.jpg'
+    img: 'image2.jpeg'
   },
   {
     name: 'Healthy Product 8',
@@ -60,7 +60,7 @@ export const dummyProducts = [
     price: '$2.00',
     supplier: 1,
     _id: 9,
-    img: '15.jpg'
+    img: 'image3.jpeg'
   },
   {
     name: 'Healthy Product 10',
@@ -81,7 +81,7 @@ export const dummyProducts = [
     price: '$87.90',
     supplier: 1,
     _id: 12,
-    img: '18.png'
+    img: 'image4.jpeg'
   }
 ]
 

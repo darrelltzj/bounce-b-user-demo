@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { handleTranslation } from '../actions/translations'
 import { Row, Col } from 'antd'
-import { shortDescription, title } from '../constants/placeholders'
+import Recommended from '../components/partials/Recommended'
+import { shortDescription } from '../constants/placeholders'
 import { dummySuppliers, dummyProducts } from '../constants/dummyData'
 import { ActionBar } from '../components/partials/ActionBar'
 import Dictionary from '../constants/dictionary'
@@ -64,6 +65,20 @@ class Company extends React.Component {
     super(props)
     this.state = {
       lang: 'en',
+      articles: [
+        {
+          _id: 1,
+          img: 'image3.jpeg'
+        },
+        {
+          _id: 2,
+          img: 'image10.jpeg'
+        },
+        {
+          _id: 3,
+          img: 'image16.jpeg'
+        }
+      ],
       products: dummyProducts.filter((item) => {
         return item.supplier.toString() === props.match.params.companyId || false
       }),
@@ -90,6 +105,15 @@ class Company extends React.Component {
         subHeader={<p>{product.price} by <strong>
           <Link style={{ color: '#666' }} to={`/companies/${dummySuppliers[product.supplier]._id}`}>{dummySuppliers[product.supplier].name[lang]}</Link>
         </strong></p>}
+      />
+    })
+    const articlesList = this.state.articles.map(article => {
+      return <CardItem
+        key={article._id}
+        _id={article._id}
+        img={article.img}
+        header={<h3>{`${Dictionary.articles[lang]} ${article._id}`}</h3>}
+        subHeader={<p>Lorem ipsum..</p>}
       />
     })
     return (
@@ -119,7 +143,7 @@ class Company extends React.Component {
               <section>
                 <Row>
                   <Col xs={24} sm={24} md={24} style={{paddingRight: '1%'}}>
-                    <span className='info-subheader'>
+                    <span className='company-subheader'>
                       {Dictionary.products[lang]}
                     </span>
                     <div className='company-product'>
@@ -129,22 +153,21 @@ class Company extends React.Component {
                 </Row>
               </section>
               <section>
-                <Col xs={24} sm={24} md={24} style={{paddingRight: '1%'}}>
-                  <span className='info-subheader'>
-                    Benefits
-                  </span>
-                  <ul>
-                    <li>1. {title}</li>
-                    <li>2. {title}</li>
-                    <li>3. {title}</li>
-                    <li>4. {title}</li>
-                  </ul>
-                </Col>
+                <Row>
+                  <Col xs={24} sm={24} md={24} style={{paddingRight: '1%'}}>
+                    <span className='company-subheader'>
+                      {Dictionary.articles[lang]}
+                    </span>
+                    <div className='company-product'>
+                      {articlesList}
+                    </div>
+                  </Col>
+                </Row>
               </section>
             </main>
           </Col>
           <Col xs={24} sm={6} md={6} style={{paddingLeft: '1%'}}>
-            {/* <Recommended /> */}
+            <Recommended />
           </Col>
         </Row>
       </StyledHomePage>

@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Row, Col, Card, InputNumber, Form, Button, Icon, Divider } from 'antd'
+import { Row, Col, InputNumber, Button, Icon } from 'antd'
 import styled from 'styled-components'
 import { dummyProducts, dummySuppliers } from '../constants/dummyData'
 
 import Recommended from '../components/partials/Recommended'
-import { shortDescription, title, text } from '../constants/placeholders'
+import { shortDescription } from '../constants/placeholders'
+import { ActionBar } from '../components/partials/ActionBar'
 
 const StyledHomePage = styled.div`
   img {
@@ -41,14 +42,15 @@ const StyledHomePage = styled.div`
 
 export default class Product extends React.Component {
   constructor (props) {
-    console.log(props)
     super(props)
     this.state = {
-      product: dummyProducts[props.match.params.productId]
+      product: dummyProducts[props.match.params.productId],
+      lang: 'en'
     }
   }
 
   render () {
+    const { lang } = this.state
     const { name, price, img, supplier } = this.state.product
     const formItemLayout = {
       labelCol: {
@@ -74,7 +76,7 @@ export default class Product extends React.Component {
                     <span>{name}</span>
                     {` by `}
                     <span className='product-subheader'>
-                      <Link to={`/companies/${dummySuppliers[supplier]._id}`}>{dummySuppliers[supplier].name}</Link>
+                      <Link to={`/companies/${dummySuppliers[supplier]._id}`}>{dummySuppliers[supplier].name[lang]}</Link>
                     </span>
                   </header>
                   <section>
@@ -85,19 +87,15 @@ export default class Product extends React.Component {
                     <Row>
                       <Col xs={24} sm={2} md={2}>Quantity: </Col>
                       <Col xs={24} sm={22} md={22}>
-                        <InputNumber min={1} max={10} defaultValue={3} onChange />
+                        <InputNumber min={1} max={10} defaultValue={3} />
                       </Col>
                     </Row>
                   </section>
-                  <section>
-                    <Button.Group>
-                      <Button type='primary'>
-                        <Icon type='shopping-cart' />Add to Cart
-                      </Button>
-                      <Button>
-                        <Icon type='heart' />Favourite
-                      </Button>
-                    </Button.Group>
+                  <section style={{display: 'flex', justifyContent: 'space-between'}}>
+                    <Button type='primary'>
+                      <Icon type='shopping-cart' />Add to Cart
+                    </Button>
+                    <ActionBar />
                   </section>
                 </div>
               </Col>
@@ -108,7 +106,7 @@ export default class Product extends React.Component {
                 <div className='product-container'>
                   <section>
                     <span className='product-subheader2'>Description</span>
-                    <p>{text}</p>
+                    <p>{shortDescription}</p>
                   </section>
                 </div>
               </Col>
