@@ -8,6 +8,7 @@ import Recommended from '../components/partials/Recommended'
 const StyledProfile = styled.div`
   {
     padding-left: 5%;
+    padding-right: 5%;
   }
   @media (max-width: 420px) {
     padding-left: 10px;
