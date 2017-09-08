@@ -87,19 +87,31 @@ export const dummyProducts = [
 
 export const dummySuppliers = [
   {
-    name: 'WeCare Pte Ltd',
+    name: {
+      en: 'We Care',
+      cn: '关心企业'
+    },
     _id: 0
   },
   {
-    name: 'Hao Hua Jian Kang',
+    name: {
+      en: 'Lingzhi Lovers',
+      cn: '我爱灵芝'
+    },
     _id: 1
   },
   {
-    name: 'A Billion Veg Pte Ltd',
+    name: {
+      en: 'A Billion Veg',
+      cn: '十亿种蔬菜'
+    },
     _id: 2
   },
   {
-    name: 'Chong San Health',
+    name: {
+      en: 'Chong San Health',
+      cn: '中山健康'
+    },
     _id: 3
   }
 ]

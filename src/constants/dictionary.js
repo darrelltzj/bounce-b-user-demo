@@ -6,5 +6,13 @@ export default {
   ginseng: {
     en: 'Ginseng',
     cn: '人参'
+  },
+  benefits: {
+    en: 'Benefits',
+    cn: '益'
+  },
+  products: {
+    en: 'Products',
+    cn: '制品 / 产品'
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Row, Col, Card, Button } from 'antd'
+import { Row, Col, Card } from 'antd'
 
 import Recommended from '../components/partials/Recommended'
 import { shortDescription, title } from '../constants/placeholders'
@@ -59,11 +59,12 @@ export default class Info extends React.Component {
   }
 
   handleLangChange (event) {
-
+    this.setState({ lang: event.target.dataset.lang })
   }
 
   render () {
     const lang = this.state.lang
+    const { handleLangChange } = this
     return (
       <StyledHomePage>
         <Row>
@@ -72,7 +73,7 @@ export default class Info extends React.Component {
               <div className='info-header-left'>
                 <span>{Dictionary.ginseng[lang]}</span>
                 <div>
-                  <a>en</a> | <a>cn</a>
+                  <a data-lang='en' onClick={handleLangChange}>en</a> | <a data-lang='cn' onClick={handleLangChange}>cn</a>
                 </div>
               </div>
               <ActionBar />
@@ -82,7 +83,7 @@ export default class Info extends React.Component {
                 <Row>
                   <Col xs={24} sm={24} md={24} style={{paddingRight: '1%'}}>
                     <span className='info-subheader'>
-                      人蔘 | 人参 | 인삼
+                      { Dictionary.ginseng[lang === 'en' ? 'cn' : 'en'] } | 人蔘 | 인삼
                   </span>
                     <p>
                       {shortDescription}
@@ -115,7 +116,7 @@ export default class Info extends React.Component {
               <section>
                 <Col xs={24} sm={24} md={24} style={{paddingRight: '1%'}}>
                   <span className='info-subheader'>
-                    Benefits
+                    { Dictionary.benefits[lang] }
                   </span>
                   <ul>
                     <li>1. {title}</li>
