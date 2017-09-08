@@ -133,7 +133,6 @@ export default class Info extends React.Component {
           </Col>
         </Row>
       </StyledHomePage>
-
     )
   }
 }

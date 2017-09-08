@@ -6,6 +6,7 @@ import { Row, Col } from 'antd'
 import { handleTranslation } from '../actions/translations'
 import dictionary from '../constants/dictionary'
 
+import {ActionBar} from '../components/partials/ActionBar'
 import Discussions from '../components/discussions/Discussions'
 import Recommended from '../components/partials/Recommended'
 import Chat from '../components/chat/Chat'
@@ -49,7 +50,7 @@ class Article extends React.Component {
           <Col xs={24} sm={18} md={18} style={{paddingRight: '1%'}}>
             <h1>{article.title}</h1>
             <h2>
-              {translation === 'en' ? dictionary.by.en : dictionary.by.cn}
+              {translation === 'en' ? dictionary.byAuthor.en : dictionary.byAuthor.cn}
               {' '}
               <Link to={`../profiles/${article.authorId}`}>
                 {article.author}
@@ -91,17 +92,7 @@ class Article extends React.Component {
               </Col>
               <Col xs={0} sm={4} md={4}>
                 <div style={{position: 'fixed', margin: '1%'}}>
-                  <span style={{cursor: 'pointer'}}>
-                    Save
-                  </span>
-                  {' | '}
-                  <span style={{cursor: 'pointer'}}>
-                    Follow
-                  </span>
-                  {' | '}
-                  <span style={{cursor: 'pointer'}}>
-                    Share
-                  </span>
+                  <ActionBar />
                 </div>
               </Col>
             </Row>

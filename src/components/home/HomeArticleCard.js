@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
+import dictionary from '../../constants/dictionary'
 
 const StyledTrending = styled.div`
   {
@@ -22,7 +23,7 @@ const StyledTrending = styled.div`
 `
 
 const HomeArticleCard = (props) => {
-  const {article} = props
+  const {translation, article} = props
   return (
     <StyledTrending>
       <div style={{width: '30%', maxHeight: '99%', overflow: 'hidden'}}>
@@ -36,7 +37,8 @@ const HomeArticleCard = (props) => {
       <div>
         <p><strong>{article.title}</strong></p>
         <p>
-          By:{' '}
+          {translation === 'en' ? dictionary.byAuthor.en : dictionary.byAuthor.cn}
+          {': '}
           <Link
             to={`/profiles/${article.authorId}`}
             style={{color: 'grey'}}
@@ -44,10 +46,21 @@ const HomeArticleCard = (props) => {
             {article.author}
           </Link>
         </p>
-        <p>Date: {article.date}</p>
+        <p>
+          {translation === 'en' ? dictionary.date.en : dictionary.date.cn}
+          {': '}
+          {article.date}
+        </p>
       </div>
     </StyledTrending>
   )
 }
 
-export default connect(null)(HomeArticleCard)
+function mapStateToProps (state, props) {
+  const {translation} = state
+  return {
+    translation
+  }
+}
+
+export default connect(mapStateToProps)(HomeArticleCard)

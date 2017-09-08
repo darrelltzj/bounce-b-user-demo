@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
+import dictionary from '../../constants/dictionary'
 
 const ProductCard = styled.div`
   {
@@ -13,7 +14,7 @@ const ProductCard = styled.div`
 `
 
 const recommendedProductCard = (props) => {
-  const {product} = props
+  const {translation, product} = props
   return (
     <ProductCard>
       <div style={{width: '100%'}}>
@@ -27,7 +28,8 @@ const recommendedProductCard = (props) => {
       <div>
         <p><strong>{product.name}</strong></p>
         <p>
-          By:{' '}
+          {translation === 'en' ? dictionary.bySeller.en : dictionary.bySeller.cn}
+          {' '}
           <Link
             to={`/companies/${product.companyId}`}
             style={{color: 'grey'}}
@@ -35,10 +37,21 @@ const recommendedProductCard = (props) => {
             {`Company ${product.companyId}`}
           </Link>
         </p>
-        <p>Price: ${product.price}</p>
+        <p>
+          {translation === 'en' ? dictionary.price.en : dictionary.price.cn}
+          {': $'}
+          {product.price}
+        </p>
       </div>
     </ProductCard>
   )
 }
 
-export default connect(null)(recommendedProductCard)
+function mapStateToProps (state, props) {
+  const {translation} = state
+  return {
+    translation
+  }
+}
+
+export default connect(mapStateToProps)(recommendedProductCard)
