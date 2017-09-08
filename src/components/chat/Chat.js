@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Form, Input } from 'antd'
+import dictionary from '../../constants/dictionary'
 
 const StyledChat = styled.aside`
   {
@@ -26,7 +27,7 @@ const StyledChat = styled.aside`
 `
 
 const Chat = (props) => {
-  const {toggleChat, author} = props
+  const {translation, toggleChat, author} = props
   return (
     <StyledChat>
       <div style={{position: 'relative'}}>
@@ -42,7 +43,7 @@ const Chat = (props) => {
         <Form style={{position: 'fixed', bottom: 10, width: 278}}>
           <Input
             type='textarea'
-            placeholder='Send a private message'
+            placeholder={translation === 'en' ? dictionary.sendAPrivateMessage.en : dictionary.sendAPrivateMessage.cn}
             rows={4}
            />
         </Form>
@@ -52,7 +53,9 @@ const Chat = (props) => {
 }
 
 function mapStateToProps (state, props) {
+  const {translation} = state
   return {
+    translation
   }
 }
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Row, Col, Icon } from 'antd'
+import dictionary from '../constants/dictionary'
 
 import HomeTrendings from '../components/home/HomeTrendings'
 import HomePins from '../components/home/HomePins'
@@ -37,7 +38,7 @@ const StyledHomePage = styled.div`
 `
 
 const HomePage = (props) => {
-  const {articles, pinnedArticles} = props
+  const {translation, articles, pinnedArticles} = props
   return (
     <StyledHomePage>
       <Link to='./articles/2'>
@@ -51,7 +52,7 @@ const HomePage = (props) => {
             </h2>
             <span style={{color: 'white'}}>
               <small>
-                featured
+                {translation === 'en' ? dictionary.featured.en : dictionary.featured.cn}
               </small>
             </span>
           </div>
@@ -65,7 +66,11 @@ const HomePage = (props) => {
           </Col>
           <Col xs={24} sm={18} md={18}
             style={{paddingLeft: '1%'}}>
-            <h2>Pinned <Icon type='bars' style={{cursor: 'pointer'}} /></h2>
+            <h2>
+              {translation === 'en' ? dictionary.pinned.en : dictionary.pinned.cn}
+              {' '}
+              <Icon type='bars' style={{cursor: 'pointer'}} />
+            </h2>
             <HomePins
               pinnedArticles={pinnedArticles} articles={articles}
             />
@@ -77,9 +82,10 @@ const HomePage = (props) => {
 }
 
 function mapStateToProps (state, props) {
-  const {articles, user} = state
+  const {translation, articles, user} = state
   const {pinnedArticles} = user
   return {
+    translation,
     articles,
     pinnedArticles
   }

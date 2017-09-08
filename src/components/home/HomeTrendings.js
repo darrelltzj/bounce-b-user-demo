@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
+import dictionary from '../../constants/dictionary'
 
 import HomeArticleCard from './HomeArticleCard'
 
@@ -17,10 +18,12 @@ const StyledTrendings = styled.div`
 `
 
 const HomeTrendings = (props) => {
-  const {articles} = props
+  const {translation, articles} = props
   return (
     <StyledTrendings>
-      <h2>Trending</h2>
+      <h2>
+        {translation === 'en' ? dictionary.trending.en : dictionary.trending.cn}
+      </h2>
       {articles.array.map((article, index) => {
         return (
           <HomeArticleCard key={index} article={articles.object[article]} />
@@ -30,4 +33,11 @@ const HomeTrendings = (props) => {
   )
 }
 
-export default connect(null)(HomeTrendings)
+function mapStateToProps (state, props) {
+  const {translation} = state
+  return {
+    translation
+  }
+}
+
+export default connect(mapStateToProps)(HomeTrendings)

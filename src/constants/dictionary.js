@@ -46,5 +46,21 @@ export default {
   articles: {
     en: 'Articles',
     cn: '文章'
+  },
+  trending: {
+    en: 'Trending',
+    cn: '最新'
+  },
+  pinned: {
+    en: 'Pinned',
+    cn: '喜爱'
+  },
+  featured: {
+    en: 'featured',
+    cn: '精选'
+  },
+  date: {
+    en: 'Date',
+    cn: '日期'
   }
 }
