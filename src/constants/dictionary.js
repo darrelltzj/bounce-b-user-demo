@@ -7,6 +7,10 @@ export default {
     en: 'Ginseng',
     cn: '人参'
   },
+  products: {
+    en: 'Products',
+    cn: '制品'
+  },
   discussions: {
     en: 'Discussions',
     cn: '讨论'
