@@ -31,8 +31,8 @@ export const dummyProducts = [
   },
   {
     name: {
-      en: 'Healthy Product 4',
-      cn: '健康产品 4'
+      en: 'Lingzhi Product 4',
+      cn: '灵芝产品 4'
     },
     price: '$88.00',
     supplier: 1,
@@ -61,8 +61,8 @@ export const dummyProducts = [
   },
   {
     name: {
-      en: 'Healthy Product 7',
-      cn: '健康产品 7'
+      en: 'Lingzhi Product 7',
+      cn: '灵芝产品 7'
     },
     price: '$25.00',
     supplier: 1,
@@ -81,8 +81,8 @@ export const dummyProducts = [
   },
   {
     name: {
-      en: 'Healthy Product 9',
-      cn: '健康产品 9'
+      en: 'Lingzhi Product 9',
+      cn: '灵芝产品 9'
     },
     price: '$2.00',
     supplier: 1,
@@ -111,8 +111,8 @@ export const dummyProducts = [
   },
   {
     name: {
-      en: 'Healthy Product 12',
-      cn: '健康产品 12'
+      en: 'Lingzhi Product 12',
+      cn: '灵芝产品 12'
     },
     price: '$87.90',
     supplier: 1,
