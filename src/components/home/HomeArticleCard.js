@@ -8,8 +8,8 @@ import dictionary from '../../constants/dictionary'
 const StyledTrending = styled.div`
   {
     height: auto;
-    margin: 1%;
-    border: 1px solid silver;
+    margin: 2px;
+    ${'' /* border: 1px solid silver; */}
     padding: 2%;
     -ms-box-orient: horizontal;
     display: -webkit-box;

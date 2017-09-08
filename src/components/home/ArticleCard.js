@@ -8,7 +8,7 @@ import dictionary from '../../constants/dictionary'
 const StyledTrending = styled.div`
   {
     height: 180px;
-    margin: 1%;
+    margin: 10px;
     overflow: hidden;
     position: relative;
   }

@@ -86,5 +86,21 @@ export default {
   searchResults: {
     en: 'Search Results',
     cn: '搜索结果'
+  },
+  foodAndNutrition: {
+    en: 'Food and Nutrition',
+    cn: '食物和营养'
+  },
+  bodyAndMind: {
+    en: 'Body and Mind',
+    cn: '身心'
+  },
+  supplements: {
+    en: 'Supplements',
+    cn: '补品'
+  },
+  herbal: {
+    en: 'Herbal',
+    cn: '草本'
   }
 }

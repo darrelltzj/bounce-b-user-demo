@@ -76,7 +76,7 @@ const Discussions = (props) => {
 function mapStateToProps (state, props) {
   const {translation} = state
   let comments = []
-  for (let i = 1; i < 5; i++) {
+  for (let i = 1; i < 9; i++) {
     let userId = Math.round(Math.random() * 3 + 1)
     comments.push({
       _id: 1,

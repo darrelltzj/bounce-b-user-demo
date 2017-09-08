@@ -1,32 +1,50 @@
 import {
 } from '../actions/types'
 
-const recommendedProducts = [5, 6]
+const recommendedProducts = [6, 8]
 const recommendedArticles = [1, 2, 3, 5, 6, 7]
 const pinnedArticles = [
   {
-    title: 'Food and Nutrition',
-    articles: [1, 2, 3]
+    title: {
+      en: 'Food and Nutrition',
+      cn: '食物和营养'
+    },
+    articleIds: [1, 2, 3]
   },
   {
-    title: 'Body and Mind',
-    articles: [5, 6, 7]
+    title: {
+      en: 'Body and Mind',
+      cn: '身心'
+    },
+    articleIds: [5, 6, 7]
   },
   {
-    title: 'Supplements',
-    articles: [4, 5, 6]
+    title: {
+      en: 'Supplements',
+      cn: '补品'
+    },
+    articleIds: [4, 5, 6]
   },
   {
-    title: 'Herbal',
-    articles: [1, 2, 7]
+    title: {
+      en: 'Herbal',
+      cn: '草本'
+    },
+    articleIds: [1, 2, 7]
   },
   {
-    title: 'Author 3',
-    articles: [5, 6, 7]
+    title: {
+      en: 'Author 3',
+      cn: 'Author 3'
+    },
+    articleIds: [5, 6, 7]
   },
   {
-    title: 'Others',
-    articles: [1, 2, 3]
+    title: {
+      en: 'Others',
+      cn: ''
+    },
+    articleIds: [1, 2, 3]
   }
 ]
 

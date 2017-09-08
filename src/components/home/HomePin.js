@@ -16,24 +16,35 @@ const StyledPin = styled.div`
 `
 
 const HomePin = (props) => {
-  const {pinnedArticle, articles} = props
+  const {translation, pinnedArticle, articles} = props
+  const {title, articleIds} = pinnedArticle
   return (
     <StyledPin>
       <h2>
-        {pinnedArticle.title}{' '}
+        {translation === 'en' ? title.en : title.cn}
+        {' '}
         <Icon type={'tag'} style={{cursor: 'pointer'}} />
       </h2>
-      {pinnedArticle.articles.map((article, index) => {
-        return (
-          <HomeArticleCard
-            key={index}
-            article={articles.object[article]}
-            pinned
-           />
-        )
-      })}
+      <div style={{border: '1px solid silver'}}>
+        {articleIds && articleIds.map((article, index) => {
+          return (
+            <HomeArticleCard
+              key={index}
+              article={articles.object[article]}
+              pinned
+            />
+          )
+        })}
+      </div>
     </StyledPin>
   )
 }
 
-export default connect(null)(HomePin)
+function mapStateToProps (state, props) {
+  const {translation} = state
+  return {
+    translation
+  }
+}
+
+export default connect(mapStateToProps)(HomePin)

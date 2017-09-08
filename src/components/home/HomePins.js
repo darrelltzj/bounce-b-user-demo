@@ -16,7 +16,7 @@ const StyledPins = styled.div`
   }
 `
 
-const HomeTrendings = (props) => {
+const HomePins = (props) => {
   const {pinnedArticles, articles} = props
   return (
     <StyledPins>
@@ -32,4 +32,4 @@ const HomeTrendings = (props) => {
   )
 }
 
-export default connect(null)(HomeTrendings)
+export default connect(null)(HomePins)

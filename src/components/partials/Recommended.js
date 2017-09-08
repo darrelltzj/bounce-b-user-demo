@@ -5,6 +5,7 @@ import dictionary from '../../constants/dictionary'
 
 import ArticleCard from '../home/ArticleCard'
 import RecommendedProductCard from './RecommendedProductCard'
+import {dummyProducts} from '../../constants/dummyData'
 
 const StyledRecommended = styled.aside`
   {
@@ -20,26 +21,26 @@ const Recommended = (props) => {
   const {translation, articles, products, recommendedProducts, recommendedArticles} = props
   return (
     <StyledRecommended>
-      <h3>
+      <h2>
         {translation === 'en' ? dictionary.youMightLikeThese.en : dictionary.youMightLikeThese.cn}
-      </h3>
-      <div>
-        <h4>
+      </h2>
+      <div style={{marginTop: 10}}>
+        <h3>
           {translation === 'en' ? dictionary.products.en : dictionary.products.cn}
-        </h4>
+        </h3>
         {recommendedProducts.map((recommendedProduct, index) => {
           return (
             <RecommendedProductCard
               key={index}
-              product={products.object[recommendedProduct]}
+              product={products[recommendedProduct]}
              />
           )
         })}
       </div>
-      <div>
-        <h4>
+      <div style={{marginTop: 10}}>
+        <h3>
           {translation === 'en' ? dictionary.articles.en : dictionary.articles.cn}
-        </h4>
+        </h3>
         {recommendedArticles.map((recommendedArticle, index) => {
           return (
             <ArticleCard
@@ -54,12 +55,12 @@ const Recommended = (props) => {
 }
 
 function mapStateToProps (state, props) {
-  const {translation, articles, products, user} = state
+  const {translation, articles, user} = state
   const {recommendedProducts, recommendedArticles} = user
   return {
     translation,
     articles,
-    products,
+    products: dummyProducts,
     recommendedProducts,
     recommendedArticles
   }

@@ -26,7 +26,7 @@ const StyledNavbar = styled.div`
     border-bottom: 1px solid #e5e5e5;
     top: 0;
     position: sticky;
-    z-index: 2;
+    z-index: 10;
   }
   @media (max-width: 420px) {
     padding-left: 10px;

@@ -4,11 +4,12 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import dictionary from '../../constants/dictionary'
 
+import {ActionBar} from './ActionBar'
+
 const ProductCard = styled.div`
   {
     height: auto;
     margin: 1%;
-    border: 1px solid silver;
     padding: 2%;
   }
 `
@@ -21,27 +22,34 @@ const recommendedProductCard = (props) => {
         <Link to={`/products/${product._id}`}>
           <img
             src={require(`../../images/${product.img}`)}
-            alt={product.title}
+            alt={translation === 'en' ? product.name.en : product.name.cn}
             style={{width: '100%'}} />
         </Link>
       </div>
-      <div>
-        <p><strong>{product.name}</strong></p>
-        <p>
-          {translation === 'en' ? dictionary.bySeller.en : dictionary.bySeller.cn}
-          {' '}
-          <Link
-            to={`/companies/${product.companyId}`}
-            style={{color: 'grey'}}
-            >
-            {`Company ${product.companyId}`}
-          </Link>
-        </p>
-        <p>
-          {translation === 'en' ? dictionary.price.en : dictionary.price.cn}
-          {': $'}
-          {product.price}
-        </p>
+      <div style={{display: 'flex', justifyContent: 'space-between'}}>
+        <div>
+          <p>
+            <strong>
+              {translation === 'en' ? product.name.en : product.name.cn}
+            </strong>
+          </p>
+          <p>
+            {translation === 'en' ? dictionary.bySeller.en : dictionary.bySeller.cn}
+            {' '}
+            <Link
+              to={`/companies/${product.supplier}`}
+              style={{color: 'grey'}}
+              >
+              {`Company ${product.supplier}`}
+            </Link>
+          </p>
+          <p>
+            {translation === 'en' ? dictionary.price.en : dictionary.price.cn}
+            {': '}
+            {product.price}
+          </p>
+        </div>
+        <ActionBar />
       </div>
     </ProductCard>
   )
