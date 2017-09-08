@@ -11,6 +11,10 @@ export default {
     en: 'Products',
     cn: '制品'
   },
+  benefits: {
+    en: 'Benefits',
+    cn: '益'
+  },
   discussions: {
     en: 'Discussions',
     cn: '讨论'
