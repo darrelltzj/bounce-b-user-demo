@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Row, Col, Card } from 'antd'
+import { Row, Col, Card, Button } from 'antd'
 
 import Recommended from '../components/partials/Recommended'
 import { shortDescription, title } from '../constants/placeholders'
+import Dictionary from '../constants/dictionary'
+import { ActionBar } from '../components/partials/ActionBar'
 
 const StyledHomePage = styled.div`
   {
@@ -15,7 +17,9 @@ const StyledHomePage = styled.div`
     padding-right: 10px;
   }
   header {
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     height: 60px;
     overflow: hidden;
     span {
@@ -28,6 +32,15 @@ const StyledHomePage = styled.div`
   .info-autocomplete {
     width: 100%;
   }
+  .info-header-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    div {
+      margin-left: 3rem;
+    }
+  }
   main {
     section + section {
       margin-top: 2rem;
@@ -39,17 +52,30 @@ export default class Info extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-
+      lang: 'en'
     }
+
+    this.handleLangChange = this.handleLangChange.bind(this)
+  }
+
+  handleLangChange (event) {
+
   }
 
   render () {
+    const lang = this.state.lang
     return (
       <StyledHomePage>
         <Row>
           <Col xs={24} sm={18} md={18} style={{paddingRight: '1%'}}>
             <header>
-              <span>Ginseng</span>
+              <div className='info-header-left'>
+                <span>{Dictionary.ginseng[lang]}</span>
+                <div>
+                  <a>en</a> | <a>cn</a>
+                </div>
+              </div>
+              <ActionBar />
             </header>
             <main>
               <section>
@@ -68,8 +94,8 @@ export default class Info extends React.Component {
                 <Row>
                   <Col xs={24} sm={24} md={24} style={{paddingRight: '1%'}}>
                     <span className='info-subheader'>
-                      Types
-                  </span>
+                      {Dictionary.types[lang]}
+                    </span>
                     <div style={{ background: '#ECECEC', padding: '30px' }}>
                       <Row gutter={16}>
                         <Col span={8}>
