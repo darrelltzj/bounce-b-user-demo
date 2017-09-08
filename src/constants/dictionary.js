@@ -62,5 +62,25 @@ export default {
   date: {
     en: 'Date',
     cn: '日期'
+  },
+  quantity: {
+    en: 'Quantity',
+    cn: '数量'
+  },
+  addToCart: {
+    en: 'Add to Cart',
+    cn: '加入购物车'
+  },
+  description: {
+    en: 'Description',
+    cn: '描述'
+  },
+  shoppingDistrict: {
+    en: 'Shopping District',
+    cn: '购物广场'
+  },
+  searchResults: {
+    en: 'Search Results',
+    cn: '搜索结果'
   }
 }

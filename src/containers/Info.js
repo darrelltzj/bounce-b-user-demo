@@ -52,20 +52,15 @@ const StyledHomePage = styled.div`
 class Info extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      lang: 'en'
-    }
-
     this.handleLangChange = this.handleLangChange.bind(this)
   }
 
   handleLangChange (event) {
-    this.setState({ lang: event.target.dataset.lang })
     this.props.handleTranslation(event.target.dataset.lang)
   }
 
   render () {
-    const lang = this.state.lang
+    const lang = this.props.translation
     const { handleLangChange } = this
     return (
       <StyledHomePage>

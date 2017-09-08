@@ -51,6 +51,7 @@ const StyledHomePage = styled.div`
   .company-product {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
   main {
@@ -101,7 +102,7 @@ class Company extends React.Component {
         key={product._id}
         _id={product._id}
         img={product.img}
-        header={<h3><Link to={`/products/${product._id}`}>{product.name}</Link></h3>}
+        header={<h3><Link to={`/products/${product._id}`}>{product.name[lang]}</Link></h3>}
         subHeader={<p>{product.price} by <strong>
           <Link style={{ color: '#666' }} to={`/companies/${dummySuppliers[product.supplier]._id}`}>{dummySuppliers[product.supplier].name[lang]}</Link>
         </strong></p>}
