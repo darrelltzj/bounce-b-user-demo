@@ -49,7 +49,7 @@ class Article extends React.Component {
           <Col xs={24} sm={18} md={18} style={{paddingRight: '1%'}}>
             <h1>{article.title}</h1>
             <h2>
-              By
+              {translation === 'en' ? dictionary.byAuthor.en : dictionary.byAuthor.cn}
               {' '}
               <Link to={`../profiles/${article.authorId}`}>
                 {article.author}

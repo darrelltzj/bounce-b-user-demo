@@ -19,9 +19,17 @@ export default {
     en: 'Discussions',
     cn: '讨论'
   },
-  by: {
+  byAuthor: {
     en: 'By',
     cn: '作者'
+  },
+  bySeller: {
+    en: 'By',
+    cn: '卖家'
+  },
+  price: {
+    en: 'Price',
+    cn: '价钱'
   },
   startADiscussion: {
     en: 'Start a discussion',
