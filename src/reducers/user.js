@@ -41,10 +41,10 @@ const pinnedArticles = [
   },
   {
     title: {
-      en: 'Others',
-      cn: ''
+      en: 'Videos',
+      cn: '视频'
     },
-    articleIds: [1, 2, 3]
+    videoIds: [1, 2, 3]
   }
 ]
 

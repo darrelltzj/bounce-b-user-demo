@@ -17,7 +17,7 @@ const StyledPins = styled.div`
 `
 
 const HomePins = (props) => {
-  const {pinnedArticles, articles} = props
+  const {pinnedArticles, articles, videos} = props
   return (
     <StyledPins>
       {pinnedArticles.map((pinnedArticle, index) => {
@@ -25,7 +25,9 @@ const HomePins = (props) => {
           <HomePin
             key={index}
             pinnedArticle={pinnedArticle}
-            articles={articles} />
+            articles={articles}
+            videos={videos}
+           />
         )
       })}
     </StyledPins>

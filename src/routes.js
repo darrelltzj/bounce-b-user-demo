@@ -13,6 +13,7 @@ import Profile from './containers/Profile'
 import ProfileEdit from './containers/ProfileEdit'
 import Product from './containers/Product'
 import Article from './containers/Article'
+import Video from './containers/Video'
 import NotFoundPage from './containers/NotFoundPage'
 
 const Routes = () => {
@@ -30,6 +31,7 @@ const Routes = () => {
           <Route exact path='/profiles/:profileId' component={Profile} />
           <Route exact path='/products/:productId' component={Product} />
           <Route exact path='/articles/:articleId' component={Article} />
+          <Route exact path='/videos/:videoId' component={Video} />
           <Route path='*' component={NotFoundPage} />
         </Switch>
       </div>

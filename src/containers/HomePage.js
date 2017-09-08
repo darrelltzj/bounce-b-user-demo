@@ -43,7 +43,7 @@ class HomePage extends React.Component {
     this.props.handleTranslation(language)
   }
   render () {
-    const {translation, articles, pinnedArticles} = this.props
+    const {translation, articles, videos, pinnedArticles} = this.props
     return (
       <StyledHomePage>
         <Link to='./articles/2'>
@@ -86,7 +86,7 @@ class HomePage extends React.Component {
                 <Icon type='bars' style={{cursor: 'pointer'}} />
               </h2>
               <HomePins
-                pinnedArticles={pinnedArticles} articles={articles}
+                pinnedArticles={pinnedArticles} articles={articles} videos={videos}
               />
             </Col>
           </Row>
@@ -97,11 +97,12 @@ class HomePage extends React.Component {
 }
 
 function mapStateToProps (state, props) {
-  const {translation, articles, user} = state
+  const {translation, articles, videos, user} = state
   const {pinnedArticles} = user
   return {
     translation,
     articles,
+    videos,
     pinnedArticles
   }
 }

@@ -9,7 +9,6 @@ const StyledTrending = styled.div`
   {
     height: auto;
     margin: 2px;
-    ${'' /* border: 1px solid silver; */}
     padding: 2%;
     -ms-box-orient: horizontal;
     display: -webkit-box;
@@ -24,16 +23,23 @@ const StyledTrending = styled.div`
 `
 
 const HomeArticleCard = (props) => {
-  const {translation, article} = props
+  const {translation, article, video} = props
   return (
     <StyledTrending>
       <div style={{width: '50%', height: '99%', overflow: 'hidden'}}>
-        <Link to={`/articles/${article._id}`}>
+        {video
+          ? <Link to={`/videos/${article._id}`}>
+            <img
+              src={require(`../../images/${article.img}`)}
+              alt={article.title}
+              style={{width: '100%'}} />
+          </Link>
+        : <Link to={`/articles/${article._id}`}>
           <img
             src={require(`../../images/${article.img}`)}
             alt={article.title}
             style={{width: '100%'}} />
-        </Link>
+        </Link>}
       </div>
       <div>
         <p><strong>{article.title}</strong></p>

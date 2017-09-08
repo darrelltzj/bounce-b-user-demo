@@ -16,8 +16,8 @@ const StyledPin = styled.div`
 `
 
 const HomePin = (props) => {
-  const {translation, pinnedArticle, articles} = props
-  const {title, articleIds} = pinnedArticle
+  const {translation, pinnedArticle, articles, videos} = props
+  const {title, articleIds, videoIds} = pinnedArticle
   return (
     <StyledPin>
       <h2>
@@ -32,6 +32,15 @@ const HomePin = (props) => {
               key={index}
               article={articles.object[article]}
               pinned
+            />
+          )
+        })}
+        {videoIds && videoIds.map((video, index) => {
+          return (
+            <HomeArticleCard
+              key={index}
+              article={videos.object[video]}
+              video
             />
           )
         })}
