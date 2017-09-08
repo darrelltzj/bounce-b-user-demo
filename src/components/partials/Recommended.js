@@ -19,7 +19,7 @@ const Recommended = (props) => {
   const {articles, products, recommendedProducts, recommendedArticles} = props
   return (
     <StyledRecommended>
-      <h3>Recommended</h3>
+      <h3>You might like these</h3>
       <div>
         <h4>Products</h4>
         {recommendedProducts.map((recommendedProduct, index) => {
