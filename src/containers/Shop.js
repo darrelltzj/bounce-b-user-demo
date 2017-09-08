@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 import Recommended from '../components/partials/Recommended'
 import { dummyProducts, dummySuppliers } from '../constants/dummyData'
+import { CardItem } from '../components/partials/CardItem'
 
 const StyledShopPage = styled.div`
   {
@@ -23,22 +24,9 @@ const StyledShopPage = styled.div`
       font-size: 3em;
     }
   }
+
   .home-subheader {
     font-size: 2em;
-  }
-  .custom-image img {
-    display: block;
-  }
-  .custom-card {
-    padding: 10px 16px;
-  }
-  .custom-card p {
-    color: #999;
-  }
-  .custom-card p > strong {
-    a:link {
-      color: #999;
-    }
   }
 
   main {
@@ -59,18 +47,17 @@ export default class Shop extends React.Component {
   }
 
   render () {
-    console.log(this.props)
     const dummyProductsList = dummyProducts.map(product => {
       return (
-        <Card key={product._id} style={{ width: 240, height: 300, marginBottom: '2rem' }} bodyStyle={{ padding: 0 }}>
-          <div className='custom-image'>
-            <img alt='example' width='100%' height='100%' src={require(`../images/${product.img}`)} />
-          </div>
-          <div className='custom-card'>
-            <h3><Link to={`/products/${product._id}`}>{product.name}</Link></h3>
-            <p>{product.price} by <strong><Link to={`/companies/${dummySuppliers[product.supplier]._id}`}>{dummySuppliers[product.supplier].name}</Link></strong></p>
-          </div>
-        </Card>
+        <CardItem
+          _id={product._id}
+          img={product.img}
+          header={<h3><Link to={`/products/${product._id}`}>{product.name}</Link></h3>}
+          subHeader={<p>{product.price} by <strong>
+            <Link style={{ color: '#666' }} to={`/companies/${dummySuppliers[product.supplier]._id}`}>{dummySuppliers[product.supplier].name}</Link>
+          </strong></p>}
+        />
+
       )
     })
 
