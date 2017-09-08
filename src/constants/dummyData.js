@@ -113,5 +113,89 @@ export const dummySuppliers = [
       cn: '中山健康'
     },
     _id: 3
+  },
+  {
+    name: {
+      en: 'Chong San Health',
+      cn: '中山健康'
+    },
+    _id: 4
+  },
+  {
+    name: {
+      en: 'Chong San Health',
+      cn: '中山健康'
+    },
+    _id: 5
+  },
+  {
+    name: {
+      en: 'Chong San Health',
+      cn: '中山健康'
+    },
+    _id: 6
+  },
+  {
+    name: {
+      en: 'Chong San Health',
+      cn: '中山健康'
+    },
+    _id: 7
+  },
+  {
+    name: {
+      en: 'Chong San Health',
+      cn: '中山健康'
+    },
+    _id: 8
+  },
+  {
+    name: {
+      en: 'Chong San Health',
+      cn: '中山健康'
+    },
+    _id: 9
+  },
+  {
+    name: {
+      en: 'Chong San Health',
+      cn: '中山健康'
+    },
+    _id: 10
+  },
+  {
+    name: {
+      en: 'Chong San Health',
+      cn: '中山健康'
+    },
+    _id: 11
+  },
+  {
+    name: {
+      en: 'Chong San Health',
+      cn: '中山健康'
+    },
+    _id: 12
+  },
+  {
+    name: {
+      en: 'Chong San Health',
+      cn: '中山健康'
+    },
+    _id: 13
+  },
+  {
+    name: {
+      en: 'Chong San Health',
+      cn: '中山健康'
+    },
+    _id: 14
+  },
+  {
+    name: {
+      en: 'Chong San Health',
+      cn: '中山健康'
+    },
+    _id: 15
   }
 ]
