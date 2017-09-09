@@ -1,9 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { Row, Col } from 'antd'
-
+import { Row, Col, Card } from 'antd'
+import { handleTranslation } from '../actions/translations'
+import { dummyAuthors } from '../constants/dummyData'
+import Dictionary from '../constants/dictionary'
+import { shortDescription, title } from '../constants/placeholders'
 import Recommended from '../components/partials/Recommended'
+import { ActionBar } from '../components/partials/ActionBar'
 
 const StyledProfile = styled.div`
   {
@@ -14,26 +18,114 @@ const StyledProfile = styled.div`
     padding-left: 10px;
     padding-right: 10px;
   }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 60px;
+    overflow: hidden;
+    span {
+      font-size: 3em;
+    }
+  }
+  .profile-subheader {
+    font-size: 2em;
+  }
+  .profile-autocomplete {
+    width: 100%;
+  }
+  .profile-header-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    div {
+      margin-left: 3rem;
+    }
+  }
+  main {
+    section + section {
+      margin-top: 2rem;
+    }
+  }
 `
 
-const Profile = () => {
-  return (
-    <StyledProfile>
-      <Row>
-        <Col xs={24} sm={18} md={18} style={{paddingRight: '1%'}}>
-          <h1>Profile</h1>
-        </Col>
-        <Col xs={0} sm={6} md={6}>
-          <Recommended />
-        </Col>
-      </Row>
-    </StyledProfile>
-  )
-}
-
-function mapStateToProps (state, props) {
-  return {
+class Profile extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      ...dummyAuthors[props.match.params.profileId]
+    }
+    this.handleLangChange = this.handleLangChange.bind(this)
+  }
+  handleLangChange (event) {
+    this.props.handleTranslation(event.target.dataset.lang)
+  }
+  render () {
+    const { name } = this.state
+    const lang = this.props.translation
+    const { handleLangChange } = this
+    return (
+      <StyledProfile>
+        <Row>
+          <Col xs={24} sm={18} md={18} style={{paddingRight: '1%'}}>
+            <header>
+              <div className='profile-header-left'>
+                <span>{name[lang]}</span>
+                <div>
+                  <a data-lang='en' onClick={handleLangChange}>en</a> | <a data-lang='cn' onClick={handleLangChange}>cn</a>
+                </div>
+              </div>
+              <ActionBar />
+            </header>
+            <main>
+              <section>
+                <Row>
+                  <Col xs={24} sm={24} md={24} style={{paddingRight: '1%'}}>
+                    <p>
+                      {shortDescription}
+                    </p>
+                  </Col>
+                </Row>
+              </section>
+              <section>
+                <Row>
+                  <Col xs={24} sm={24} md={24} style={{paddingRight: '1%'}}>
+                    <span className='profile-subheader'>
+                      {Dictionary.articles[lang]}
+                    </span>
+                    <div style={{ background: '#ECECEC', padding: '30px' }}>
+                      <Row gutter={16}>
+                        <Col span={8}>
+                          <Card title={Dictionary.articles[lang]} bordered={false}>{shortDescription}</Card>
+                        </Col>
+                        <Col span={8}>
+                          <Card title={Dictionary.articles[lang]} bordered={false}>{shortDescription}</Card>
+                        </Col>
+                        <Col span={8}>
+                          <Card title={Dictionary.articles[lang]} bordered={false}>{shortDescription}</Card>
+                        </Col>
+                      </Row>
+                    </div>
+                  </Col>
+                </Row>
+              </section>
+            </main>
+          </Col>
+          <Col xs={24} sm={6} md={6} style={{paddingLeft: '1%'}}>
+            <Recommended />
+          </Col>
+        </Row>
+      </StyledProfile>
+    )
   }
 }
 
-export default connect(mapStateToProps)(Profile)
+function mapStateToProps (state, props) {
+  const {translation} = state
+  return {
+    translation
+  }
+}
+
+export default connect(mapStateToProps, {handleTranslation})(Profile)

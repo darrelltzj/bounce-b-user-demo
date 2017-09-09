@@ -56,7 +56,7 @@ export default {
     cn: '喜爱'
   },
   featured: {
-    en: 'featured',
+    en: 'Featured',
     cn: '精选'
   },
   date: {

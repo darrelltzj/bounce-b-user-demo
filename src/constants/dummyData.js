@@ -235,3 +235,30 @@ export const dummySuppliers = [
     _id: 15
   }
 ]
+
+export const dummyAuthors = [
+  {
+    name: {
+      en: 'Author 0',
+      cn: '作者 0'
+    }
+  },
+  {
+    name: {
+      en: 'Author 1',
+      cn: '作者 1'
+    }
+  },
+  {
+    name: {
+      en: 'Author 2',
+      cn: '作者 2'
+    }
+  },
+  {
+    name: {
+      en: 'Author 3',
+      cn: '作者 3'
+    }
+  }
+]

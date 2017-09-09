@@ -55,7 +55,7 @@ const Navbar = (props) => {
         </Form>
       </div>
       <div>
-        <Link to='/'>
+        <Link to='/shop'>
           <Icon type='shopping-cart' style={{ fontSize: '2em', color: 'black' }} />
         </Link>
       </div>
