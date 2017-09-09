@@ -49,7 +49,11 @@ const Navbar = (props) => {
       <div style={{ width: '50%' }}>
         <Form>
           <Input
-            prefix={<Icon type='search' style={{ fontSize: 12 }} />}
+            prefix={
+              <Link to='/info'>
+                <Icon type='search' style={{ fontSize: 12 }} />
+              </Link>
+            }
             placeholder={translation === 'en' ? dictionary.search.en : dictionary.search.cn}
            />
         </Form>

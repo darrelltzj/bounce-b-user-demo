@@ -7,7 +7,7 @@ import Navbar from './components/partials/Navbar'
 import HomePage from './containers/HomePage'
 import Info from './containers/Info'
 import Shop from './containers/Shop'
-import Directory from './containers/Directory'
+// import Directory from './containers/Directory'
 import Company from './containers/Company'
 import Profile from './containers/Profile'
 import ProfileEdit from './containers/ProfileEdit'
@@ -25,7 +25,7 @@ const Routes = () => {
           <Route exact path='/' component={HomePage} />
           <Route exact path='/info' component={Info} />
           <Route exact path='/shop' component={Shop} />
-          <Route exact path='/directory' component={Directory} />
+          {/* <Route exact path='/directory' component={Directory} /> */}
           <Route exact path='/companies/:companyId' component={Company} />
           <Route exact path='/profiles/:profileId/edit' component={ProfileEdit} />
           <Route exact path='/profiles/:profileId' component={Profile} />
