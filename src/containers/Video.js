@@ -72,6 +72,7 @@ class Video extends React.Component {
                   height='360'
                   src={video.url}
                   frameBorder='0'
+                  title={video.title}
                   allowFullScreen />
                 <Discussions toggleChat={this.toggleChat} />
                 {this.state.toggleChat &&

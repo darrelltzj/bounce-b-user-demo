@@ -10,6 +10,7 @@ import { dummySuppliers, dummyProducts } from '../constants/dummyData'
 import { ActionBar } from '../components/partials/ActionBar'
 import Dictionary from '../constants/dictionary'
 import { CardItem } from '../components/partials/CardItem'
+import isoImage from '../images/ISO_Certified_registered.png'
 
 const StyledHomePage = styled.div`
   {
@@ -94,7 +95,8 @@ class Company extends React.Component {
   }
 
   render () {
-    const { name, lang } = this.state
+    const { translation } = this.props
+    const { name } = this.state
     const { handleLangChange } = this
 
     const productsList = this.state.products.map(product => {
@@ -102,9 +104,9 @@ class Company extends React.Component {
         key={product._id}
         _id={product._id}
         img={product.img}
-        header={<h3><Link to={`/products/${product._id}`}>{product.name[lang]}</Link></h3>}
+        header={<h3><Link to={`/products/${product._id}`}>{product.name[translation]}</Link></h3>}
         subHeader={<p>{product.price} by <strong>
-          <Link style={{ color: '#666' }} to={`/companies/${dummySuppliers[product.supplier]._id}`}>{dummySuppliers[product.supplier].name[lang]}</Link>
+          <Link style={{ color: '#666' }} to={`/companies/${dummySuppliers[product.supplier]._id}`}>{dummySuppliers[product.supplier].name[translation]}</Link>
         </strong></p>}
       />
     })
@@ -113,7 +115,7 @@ class Company extends React.Component {
         key={article._id}
         _id={article._id}
         img={article.img}
-        header={<h3>{`${Dictionary.articles[lang]} ${article._id}`}</h3>}
+        header={<h3>{`${Dictionary.articles[translation]} ${article._id}`}</h3>}
         subHeader={<p>Lorem ipsum..</p>}
       />
     })
@@ -123,7 +125,11 @@ class Company extends React.Component {
           <Col xs={24} sm={18} md={18} style={{paddingRight: '1%'}}>
             <header>
               <div className='company-header-left'>
-                <span>{name[lang]}</span>
+                <span>
+                  {name[translation]}
+                  {' '}
+                  <img src={isoImage} alt='iso' style={{height: '0.8em'}} />
+                </span>
                 <div>
                   <a data-lang='en' onClick={handleLangChange}>en</a> | <a data-lang='cn' onClick={handleLangChange}>cn</a>
                 </div>
@@ -145,7 +151,7 @@ class Company extends React.Component {
                 <Row>
                   <Col xs={24} sm={24} md={24} style={{paddingRight: '1%'}}>
                     <span className='company-subheader'>
-                      {Dictionary.products[lang]}
+                      {Dictionary.products[translation]}
                     </span>
                     <div className='company-product'>
                       {productsList}
@@ -157,7 +163,7 @@ class Company extends React.Component {
                 <Row>
                   <Col xs={24} sm={24} md={24} style={{paddingRight: '1%'}}>
                     <span className='company-subheader'>
-                      {Dictionary.articles[lang]}
+                      {Dictionary.articles[translation]}
                     </span>
                     <div className='company-product'>
                       {articlesList}
