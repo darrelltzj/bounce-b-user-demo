@@ -1,11 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { Row, Col, Card } from 'antd'
+import { Row, Col, Card, Icon } from 'antd'
 import { handleTranslation } from '../actions/translations'
 import { dummyAuthors } from '../constants/dummyData'
 import Dictionary from '../constants/dictionary'
-import { shortDescription, title } from '../constants/placeholders'
+import Chat from '../components/chat/Chat'
+
+import { shortDescription } from '../constants/placeholders'
 import Recommended from '../components/partials/Recommended'
 import { ActionBar } from '../components/partials/ActionBar'
 
@@ -54,17 +56,26 @@ class Profile extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
+      toggleChat: false,
       ...dummyAuthors[props.match.params.profileId]
     }
     this.handleLangChange = this.handleLangChange.bind(this)
+    this.toggleChat = this.toggleChat.bind(this)
   }
+
+  toggleChat (author) {
+    this.setState({
+      toggleChat: author
+    })
+  }
+
   handleLangChange (event) {
     this.props.handleTranslation(event.target.dataset.lang)
   }
   render () {
-    const { name } = this.state
+    const { name, toggleChat: toggleChatState } = this.state
     const lang = this.props.translation
-    const { handleLangChange } = this
+    const { handleLangChange, toggleChat } = this
     return (
       <StyledProfile>
         <Row>
@@ -72,6 +83,18 @@ class Profile extends React.Component {
             <header>
               <div className='profile-header-left'>
                 <span>{name[lang]}</span>
+                <span
+                  style={{
+                    marginLeft: '1rem',
+                    cursor: 'pointer',
+                    fontSize: '1.6em',
+                    float: 'right',
+                    right: 0}}
+                  onClick={() => toggleChat(true)}
+                >
+                  <Icon type='message' />
+                </span>
+
                 <div>
                   <a data-lang='en' onClick={handleLangChange}>en</a> | <a data-lang='cn' onClick={handleLangChange}>cn</a>
                 </div>
@@ -116,6 +139,11 @@ class Profile extends React.Component {
             <Recommended />
           </Col>
         </Row>
+        {toggleChatState &&
+          <Chat
+            toggleChat={toggleChat}
+            author={name[lang]} />
+        }
       </StyledProfile>
     )
   }
